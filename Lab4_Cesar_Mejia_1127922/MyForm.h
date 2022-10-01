@@ -9,9 +9,9 @@ namespace Lab4CesarMejia1127922 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	char montania[2][70];
 	int postortuga=0, posliebre=0, *ptrtortuga, *ptrliebre;
 	bool continuar = true;
+	int montania[2][70];
 
 	/// <summary>
 	/// Resumen de MyForm
@@ -46,6 +46,8 @@ namespace Lab4CesarMejia1127922 {
 	private: System::Windows::Forms::Label^ lblpostortuga;
 	private: System::Windows::Forms::Label^ lblposliebre;
 	private: System::Windows::Forms::Button^ btniniciocarrera;
+	private: System::Windows::Forms::Label^ lblbarratortuga;
+	private: System::Windows::Forms::Label^ lblbarraliebre;
 
 	protected:
 
@@ -73,6 +75,8 @@ namespace Lab4CesarMejia1127922 {
 			this->lblpostortuga = (gcnew System::Windows::Forms::Label());
 			this->lblposliebre = (gcnew System::Windows::Forms::Label());
 			this->btniniciocarrera = (gcnew System::Windows::Forms::Button());
+			this->lblbarratortuga = (gcnew System::Windows::Forms::Label());
+			this->lblbarraliebre = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -87,7 +91,7 @@ namespace Lab4CesarMejia1127922 {
 			// lblnametortuga
 			// 
 			this->lblnametortuga->AutoSize = true;
-			this->lblnametortuga->Location = System::Drawing::Point(78, 96);
+			this->lblnametortuga->Location = System::Drawing::Point(39, 91);
 			this->lblnametortuga->Name = L"lblnametortuga";
 			this->lblnametortuga->Size = System::Drawing::Size(54, 16);
 			this->lblnametortuga->TabIndex = 1;
@@ -96,7 +100,7 @@ namespace Lab4CesarMejia1127922 {
 			// lblnameliebre
 			// 
 			this->lblnameliebre->AutoSize = true;
-			this->lblnameliebre->Location = System::Drawing::Point(430, 96);
+			this->lblnameliebre->Location = System::Drawing::Point(45, 293);
 			this->lblnameliebre->Name = L"lblnameliebre";
 			this->lblnameliebre->Size = System::Drawing::Size(45, 16);
 			this->lblnameliebre->TabIndex = 2;
@@ -105,21 +109,19 @@ namespace Lab4CesarMejia1127922 {
 			// lblacciontortuga
 			// 
 			this->lblacciontortuga->AutoSize = true;
-			this->lblacciontortuga->Location = System::Drawing::Point(88, 138);
+			this->lblacciontortuga->Location = System::Drawing::Point(39, 129);
 			this->lblacciontortuga->Name = L"lblacciontortuga";
-			this->lblacciontortuga->Size = System::Drawing::Size(44, 16);
+			this->lblacciontortuga->Size = System::Drawing::Size(0, 16);
 			this->lblacciontortuga->TabIndex = 3;
-			this->lblacciontortuga->Text = L"label4";
 			this->lblacciontortuga->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblaccionliebre
 			// 
 			this->lblaccionliebre->AutoSize = true;
-			this->lblaccionliebre->Location = System::Drawing::Point(431, 138);
+			this->lblaccionliebre->Location = System::Drawing::Point(46, 334);
 			this->lblaccionliebre->Name = L"lblaccionliebre";
-			this->lblaccionliebre->Size = System::Drawing::Size(44, 16);
+			this->lblaccionliebre->Size = System::Drawing::Size(0, 16);
 			this->lblaccionliebre->TabIndex = 4;
-			this->lblaccionliebre->Text = L"label2";
 			this->lblaccionliebre->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// lblpostortuga
@@ -135,7 +137,7 @@ namespace Lab4CesarMejia1127922 {
 			// lblposliebre
 			// 
 			this->lblposliebre->AutoSize = true;
-			this->lblposliebre->Location = System::Drawing::Point(388, 174);
+			this->lblposliebre->Location = System::Drawing::Point(46, 373);
 			this->lblposliebre->Name = L"lblposliebre";
 			this->lblposliebre->Size = System::Drawing::Size(142, 16);
 			this->lblposliebre->TabIndex = 6;
@@ -144,7 +146,7 @@ namespace Lab4CesarMejia1127922 {
 			// 
 			// btniniciocarrera
 			// 
-			this->btniniciocarrera->Location = System::Drawing::Point(200, 438);
+			this->btniniciocarrera->Location = System::Drawing::Point(400, 34);
 			this->btniniciocarrera->Name = L"btniniciocarrera";
 			this->btniniciocarrera->Size = System::Drawing::Size(151, 86);
 			this->btniniciocarrera->TabIndex = 7;
@@ -152,11 +154,29 @@ namespace Lab4CesarMejia1127922 {
 			this->btniniciocarrera->UseVisualStyleBackColor = true;
 			this->btniniciocarrera->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
 			// 
+			// lblbarratortuga
+			// 
+			this->lblbarratortuga->AutoSize = true;
+			this->lblbarratortuga->Location = System::Drawing::Point(12, 209);
+			this->lblbarratortuga->Name = L"lblbarratortuga";
+			this->lblbarratortuga->Size = System::Drawing::Size(0, 16);
+			this->lblbarratortuga->TabIndex = 8;
+			// 
+			// lblbarraliebre
+			// 
+			this->lblbarraliebre->AutoSize = true;
+			this->lblbarraliebre->Location = System::Drawing::Point(12, 412);
+			this->lblbarraliebre->Name = L"lblbarraliebre";
+			this->lblbarraliebre->Size = System::Drawing::Size(0, 16);
+			this->lblbarraliebre->TabIndex = 9;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(567, 569);
+			this->ClientSize = System::Drawing::Size(589, 508);
+			this->Controls->Add(this->lblbarraliebre);
+			this->Controls->Add(this->lblbarratortuga);
 			this->Controls->Add(this->btniniciocarrera);
 			this->Controls->Add(this->lblposliebre);
 			this->Controls->Add(this->lblpostortuga);
@@ -177,7 +197,6 @@ namespace Lab4CesarMejia1127922 {
 		int rndtortuga, rndliebre;
 		rndtortuga = rand() % 10;
 		rndliebre = rand() % 10;
-
 		if (continuar)
 		{
 			switch (rndtortuga)
@@ -188,14 +207,15 @@ namespace Lab4CesarMejia1127922 {
 			case 3:
 			case 4:
 				lblacciontortuga->Text = "Paso Velóz";
-				if (postortuga>=70)
+				if (postortuga+rndtortuga>=70)
 				{
 					continuar = false;
 					postortuga = 70;
+					lblpostortuga->Text = "Posición de la tortuga: " + Convert::ToString(postortuga);
 				}
 				else
 				{
-					postortuga += 3;
+					postortuga += 3;					
 				}
 				lblpostortuga->Text = "Posición de la tortuga: " + Convert::ToString(postortuga);
 				break;
@@ -216,10 +236,11 @@ namespace Lab4CesarMejia1127922 {
 			case 8:
 			case 9:
 				lblacciontortuga->Text = "Paso lento";
-				if (postortuga >= 70)
+				if (postortuga+rndtortuga>= 70)
 				{
 					continuar = false;
 					postortuga = 70;
+					lblpostortuga->Text = "Posición de la tortuga: " + Convert::ToString(postortuga);
 				}
 				else
 				{
@@ -239,7 +260,7 @@ namespace Lab4CesarMejia1127922 {
 			case 2:
 			case 3:
 				lblaccionliebre->Text = "Gran Salto";
-				if (posliebre>=70)
+				if (posliebre+rndliebre>=70)
 				{
 					continuar = false;
 					posliebre = 70;
@@ -266,7 +287,7 @@ namespace Lab4CesarMejia1127922 {
 			case 6:
 			case 7:
 				lblaccionliebre->Text = "Salto Pequeño";
-				if (posliebre >= 70)
+				if (posliebre+rndliebre>= 70)
 				{
 					continuar = false;
 					posliebre = 70;
@@ -291,7 +312,40 @@ namespace Lab4CesarMejia1127922 {
 				lblposliebre->Text = "Posición de la liebre: " + Convert::ToString(posliebre);
 				break;
 			}
+			if (postortuga == posliebre)
+			{
+				MessageBox::Show("¡OUCH! en " + posliebre);
+			}
+			{
+			for (int i = 0; i < 69; i++)
+			{
+				montania[0][i] = 0;
+			}
+			montania[0][postortuga] = 1;
+			lblbarratortuga->Text = "";
+			for (int i = 0; i < 69; i++)
+			{
+				lblbarratortuga->Text += Convert::ToString(montania[0][i]);
+			}
+			}
+			//barra de tortuga
+
+			{
+				for (int i = 0; i < 69; i++)
+				{
+					montania[1][i] = 0;
+				}
+				montania[1][posliebre] = 1;
+				lblbarraliebre->Text = "";
+				for (int i = 0; i < 69; i++)
+				{
+					lblbarraliebre->Text += Convert::ToString(montania[1][i]);
+				}
+			}
+			//barra de liebre
+
 		}
+		
 		else
 		{
 		if (posliebre==70)
